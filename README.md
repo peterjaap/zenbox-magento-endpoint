@@ -4,8 +4,8 @@
 Zenbox is a browser extension that connects all of your SaaS services, like Desk.com, Stripe, Shopify, Mailchimp, Salesforce, and more. [Zenboxapp.com](http://zenboxapp.com)
 
 ## What does this endpoint do? ##
-When you have an email from one of your clients open, it will look in your Magento shop to see if this customer has an account. If so, it will display his/her name. If the customer also placed some orders, it'll show the individual turnover and the last item purchased. You can also use the Actions dialog to open the client in the Magento backend directly or go to their last order.
-![Screenshot](https://github.com/peterjaap/zenbox-magento-endpoint/blob/master/screenshot.png)
+When you have an email from one of your clients open, it will look in your Magento shop to see if this customer has an account. If so, it will display his/her name. If the customer also placed some orders, it'll show the individual turnover and the last item purchased. You can also use the Actions dialog to open the client in the Magento backend directly or go to their last order.   
+![Screenshot](https://raw.github.com/peterjaap/zenbox-magento-endpoint/master/screenshot.png)
 
 ## How do I configure this? ##
 First, install the [Zenbox Chrome Extension](https://chrome.google.com/webstore/detail/zenbox/mlkjemamfkkbldipgchdhfghamhmdchg). In the extension Settings page, create an account and click on Custom Data. As your Custom Data URL, use;
