@@ -9,7 +9,7 @@ When you have an email from one of your clients open, it will look in your Magen
 ## How do I configure this? ##
 First, install the [Zenbox Chrome Extension](https://chrome.google.com/webstore/detail/zenbox/mlkjemamfkkbldipgchdhfghamhmdchg). In the extension Settings page, create an account and click on Custom Data. As your Custom Data URL, use;
 ```
-http://www.yourdomain.com/zenbox/?auth=YOURAUTHKEY&domain=WWW.YOURDOMAIN.COM&user=YOURAPIUSER&key=YOURAPIKEY
+http://www.yourdomain.com/zenbox/?auth=YOURAUTHKEY&domain=WWW.YOURSHOPDOMAIN.COM&user=YOURAPIUSER&key=YOURAPIKEY
 ```
 You have to create a Web Services account in your Magento backend. Fill in the API user & key in the Custom Data URL. Make up your own auth key to protect the script from being used by other people.
 The script itself doesn't need to be placed on thesame server as your Magento installation; it can be run from anywhere.
