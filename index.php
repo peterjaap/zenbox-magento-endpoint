@@ -2,13 +2,15 @@
 error_reporting(E_ALL);
 header("Content-Type: text/plain");
 
+$authkey = 'YOURAUTHKEY';
+
 $email = $_GET['email'];
 $domain = $_GET['domain'];
 $auth = $_GET['auth'];
 $user = $_GET['user'];
 $key = $_GET['key'];
 
-if($auth=='asfkljasf78945u43khjsvncx78sdyiqw') {
+if($auth==$authkey) {
     $client = new SoapClient('http://' . $domain .'/api/v2_soap/?wsdl');
     $session = $client->login($user, $key);
     $params = array('email'=>$email);
