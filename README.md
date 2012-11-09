@@ -11,6 +11,7 @@ First, install the [Zenbox Chrome Extension](https://chrome.google.com/webstore/
 ```
 http://www.yourdomain.com/zenbox/?auth=YOURAUTHKEY&domain=WWW.YOURSHOPDOMAIN.COM&user=YOURAPIUSER&key=YOURAPIKEY
 ```
+Add the 'backendRouter' parameter if you use a custom backend router (i.e. not the default 'admin').
 You have to create a Web Services account in your Magento backend. Fill in the API user & key in the Custom Data URL. Make up your own auth key to protect the script from being used by other people.
 The script itself doesn't need to be placed on thesame server as your Magento installation; it can be run from anywhere.
 

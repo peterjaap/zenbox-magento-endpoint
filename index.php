@@ -9,6 +9,7 @@ $domain = $_GET['domain'];
 $auth = $_GET['auth'];
 $user = $_GET['user'];
 $key = $_GET['key'];
+$backendRouter = (isset($_GET['backendRouter']) ? $_GET['backendRouter'] : 'admin');
 
 if($auth==$authkey) {
     $client = new SoapClient('http://' . $domain .'/api/v2_soap/?wsdl');
@@ -32,9 +33,7 @@ if($auth==$authkey) {
         foreach($orders as $order) {
             $order = $client->salesOrderInfo($session,$order->increment_id);
             $individualRevenue += $order->grand_total;
-            foreach($order->items as $item) {
-                $lastItem = $item->name.' ('.$item->sku.')';
-            }
+            $lastItem = array_pop($order->items);
         }
         $customer_groups = $client->customerGroupList($session);
         foreach($customer_groups as $group) {
@@ -54,14 +53,18 @@ if($auth==$authkey) {
         if($store) $json['profile']['Website'] = $store;
         if($customer_group) $json['profile']['Customer Group'] = $customer_group;
         if($individualRevenue) $json['profile']['Individual turnover'] = '&euro; '.number_format($individualRevenue,2,'.',',');
-        if($lastItem) $json['profile']['Last purchased item'] = $lastItem;
+        if($lastItem) $json['profile']['Last purchased item'] = $lastItem->name . '(' . $lastItem->sku . ')';
 
         $json['actions'][0]['title'] = 'View user in shop backend';
-        $json['actions'][0]['url'] = 'http://' . $domain;
+        $json['actions'][0]['url'] = 'http://' . $domain . '/index.php/' . $backendRouter . '/customer/edit/id/' . $customer->customer_id;
         $json['actions'][0]['ajax'] = false;
 
-        $json['actions'][1]['title'] = 'Log in as user in shop frontend';
-        $json['actions'][1]['url'] = 'http://' . $domain;
+        $json['actions'][1]['title'] = 'Open latest order';
+        $json['actions'][1]['url'] = 'http://' . $domain . '/index.php/' . $backendRouter . '/sales_order/view/order_id/' . $order->order_id;
+        $json['actions'][1]['ajax'] = false;
+
+        $json['actions'][1]['title'] = 'View latest purchased product';
+        $json['actions'][1]['url'] = 'http://' . $domain . '/' . $lastItem->url_key;
         $json['actions'][1]['ajax'] = false;
 
         echo json_encode($json);
