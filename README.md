@@ -15,6 +15,6 @@ You have to create a Web Services account in your Magento backend. Fill in the A
 The script itself doesn't need to be placed on thesame server as your Magento installation; it can be run from anywhere.
 
 ## Contact ##
-GitHub: https://github.com/peterjaap
-Twitter: https://twitter.com/PeterJaap
-Email: peterjaap@elgentos.nl
+GitHub: https://github.com/peterjaap   
+Twitter: https://twitter.com/PeterJaap   
+Email: peterjaap@elgentos.nl   
